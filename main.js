@@ -22,7 +22,7 @@ var newVM = new Vue ({
         this.hoverStatus = active;
 				this.note = "Add a note";
       };
-      newVM.pinLocation.push(new Coordinates(event.clientX, event.clientY,false));
+      newVM.pinLocation.push(new Coordinates(event.pageX, event.pageY,false));
       console.log("clicked");
     },
     handler: function(locations){
