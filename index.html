@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="main.css" />
+  <script src="https://unpkg.com/vue"></script>
+<body>
+  <div id="appMain">
+    <img
+    v-on:click="checkXY($event)"
+    class="mainMap" src="http://www.tolkien.co.uk/file/IfbTdA8/5d04a105-e66b-4d9b-b218-928c691eb83d.jpg"
+    />
+
+  <div v-for="(locations, i) in pinLocation">
+    <img
+    v-bind:style="{left: locations.xCoordinate + 'px', top: locations.yCoordinate + 'px'}"
+    v-bind:class="{hideIcon: locations.active}"
+    v-on:click="hoverActive(locations)"
+		@contextmenu.prevent="handler(locations)"
+    src="http://webpop.github.io/jquery.pin/images/pin.png"
+    class="pin" />
+
+    <input
+    v-bind:style="{left: locations.noteXCoordinate + 'px', top: locations.noteYCoordinate + 'px'}"
+    v-bind:class="{hideNote: locations.hoverStatus}"
+		v-model="locations.note"
+		type="text"
+		placeholder="Add a Note"
+    class="textBox" />
+  </div>
+
+
+<!-- v-for="x in xLocation"  v-bind:style="{left: x + 'px'}"  -->
+
+
+  <!-- v-bind:class="{hideIcon: locations.active}"
+    v-on:click="toggleActive(locations)"
+ -->
+
+  </div>
+
+
+  <script src="main.js"></script>
+</body>
+</head>
+</html>
+<!-- -->
